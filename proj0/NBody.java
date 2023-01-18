@@ -1,4 +1,4 @@
-import com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV;
+
 
 public class NBody {
 
@@ -28,8 +28,8 @@ public class NBody {
 
     public static void main(String[] args){
         double T, dt;
-        T = Double.valueOf(args[0]);
-        dt = Double.valueOf(args[1]);
+        T = Double.parseDouble(args[0]);
+        dt = Double.parseDouble(args[1]);
         String fileName = args[2];
         double radius = readRadius(fileName);
         StdDraw.setScale(-radius, radius);
