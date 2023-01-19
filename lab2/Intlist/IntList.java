@@ -1,3 +1,5 @@
+import javax.management.openmbean.OpenMBeanAttributeInfo;
+import javax.swing.text.html.InlineView;
 import java.util.Formatter;
 
 /**
@@ -82,7 +84,12 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        IntList ptr = A;
+        while (ptr.rest != null){
+            ptr = ptr.rest;
+        }
+        ptr.rest = B;
+        return A;
     }
 
     /**
@@ -91,7 +98,16 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        IntList L = new IntList(A.first, null);
+        IntList ptr = A;
+        IntList Lptr = L;
+        while (ptr.rest != null){
+            ptr = ptr.rest;
+            Lptr.rest = new IntList(ptr.first, null);
+            Lptr = Lptr.rest;
+        }
+        Lptr.rest = B;
+        return L;
     }
 
 
